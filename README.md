@@ -20,7 +20,8 @@ RUN R -e "install.packages('tidybayes',dependencies=TRUE, repos='http://cran.rst
 ```
 ### 6. Build the new Docker image in Terminal - make sure you have navigated to the correct directory in step 4! The -t indicates you are tagging the image. The period is important to tell the build function where the Dockerfile is.
 `docker build -t melofton/ml-verse .`
-### 7. Run the Docker container either using code commands in Terminal or from Docker Desktop. This builds a container to go with the new image you have just made. 
+### 7. Run the Docker container either using code commands in Terminal or from Docker Desktop. This builds a container to go with the new image you have just made. Note that depending on the rocker version that the container is built from, you may HAVE to specify a password to run it, as below. The password can be anything except 'rstudio'.
+`docker run -e PASSWORD=something -p 8787:8787 melofton/bayes`
 
 ### 8. Navigate to your Docker Hub account (sign in). Create a new repository that matches the tag you gave your new container (e.g., melofton/ml-verse).
 
