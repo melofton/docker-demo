@@ -15,7 +15,8 @@ These instructions assume you have already created a DockerHub account and have 
 ```{bash}
 FROM rocker/ml-verse
 
-RUN pip install tqdm
+RUN pip install tqdm #Python library
+RUN R -e "install.packages('tidybayes',dependencies=TRUE, repos='http://cran.rstudio.com/')" # R package
 ```
 ### 6. Build the new Docker image in Terminal - make sure you have navigated to the correct directory in step 4! The -t indicates you are tagging the image. The period is important to tell the build function where the Dockerfile is.
 `docker build -t melofton/ml-verse .`
